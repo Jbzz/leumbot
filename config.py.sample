@@ -1,0 +1,12 @@
+class Config:
+    oath_token = ""
+    bot_name = ""
+
+class ProdConfig:
+    pass
+
+class DevConfig(Config):
+    pass
+
+cass TestConfig(Config):
+    pass
