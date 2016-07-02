@@ -27,6 +27,14 @@ def build_bot(config='dev'):
 
     bot.run(our_config.oauth_token)
 
+@bot.command()
+async def jordanstory():
+    """100% True stories about Jordan Judson from Tacoma, WA"""
+    file = open('jordanstories.txt', 'r')
+    stories = file.read().splitlines()
+    story = random.choice(stories)
+    await bot.say(story)
+
 @bot.event
 async def on_ready():
     print('Logged in as')
