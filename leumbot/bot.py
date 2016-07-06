@@ -1,9 +1,8 @@
 import random
 
 import discord
-
 from discord.ext import commands
-from config import configs
+from config import Config
 
 
 description = '''An example bot to showcase the discord.ext.commands extension
@@ -27,6 +26,22 @@ def build_bot(config='dev'):
 
     bot.run(our_config.oauth_token)
 
+@bot.event
+async def on_ready():
+    print('Logged in as')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('------')
+
+@bot.command
+async def rip
+	await client.send_file('meimei-and-chill', 'sa_rip.png')
+	await bot.say('Ya, RIP')
+
+@bot.command
+async def smith
+	await client.send.file('meimei-and-chill', 'sa_smith.png')
+	
 @bot.command()
 async def jordanstory():
     """100% True stories about Jordan Judson from Tacoma, WA"""
@@ -34,13 +49,6 @@ async def jordanstory():
     stories = file.read().splitlines()
     story = random.choice(stories)
     await bot.say(story)
-
-@bot.event
-async def on_ready():
-    print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
 
 @bot.command()
 async def add(*args):
